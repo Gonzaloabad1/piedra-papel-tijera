@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1f4068, #162447);
+    color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+   color:goldenrod;
+}
+
+h1 img {
+    width: 80px;
+    height: auto;
+}
+
+.game {
+    background: #2c2c2b;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(214, 208, 208, 0.5);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.elegir {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.choice {
+    background-color: #6edff9;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.choice:hover {
+    background-color: #f71212;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(228, 63, 90, 0.4);
+}
+
+.choice:active {
+    transform: translateY(0);
+}
+
+.resultado {
+    background: #8f929590;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.resultado p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color:#ffffff ;
+}
+
+.resultado p:last-child {
+    margin-bottom: 0;
+}
+
+#outcome {
+    font-weight: bold;
+    color: #ffe102;
+    font-size: 1.3rem;
+    padding-top: 10px;
+    margin-top: 10px;
+}
