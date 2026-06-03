@@ -1,112 +1,200 @@
+/* ==========================================
+  CONFIGURACIÓN GLOBAL
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #1f4068, #162447);
-    color: #f2f2f2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    /* Fondo moderno con un degradado sutil */
+   background: linear-gradient(135deg, rgba(69, 100, 172, 0.85) 0%, rgba(30, 41, 59, 0.9) 100%), 
+    url('./img/15.jpg'); /* <-- Cambia esto por la ruta de tu imagen */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #f8fafc;
     padding: 20px;
 }
 
+/* Título de la App */
 h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-   color:goldenrod;
+    gap: 12px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 h1 img {
-    width: 80px;
-    height: auto;
+    height: 40px;
+    width: auto;
 }
 
-.game {
-    background: #2c2c2b;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(214, 208, 208, 0.5);
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-}
+/* ==========================================
+   CONTENEDOR (DASHBOARD)
+   ========================================== */
 
-.elegir {
+   .marcador{
+    background-color: #7da6e8;
+    border: 1px solid #fdfdfe;
     display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.choice {
-    background-color: #6edff9;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    flex: 1;
-}
-
-.choice:hover {
-    background-color: #f71212;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(228, 63, 90, 0.4);
-}
-
-.choice:active {
-    transform: translateY(0);
-}
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 460px;
+   }
 
 .resultado {
-    background: #8f929590;
-    padding: 20px;
+    background-color: #3774d67b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para las líneas de texto del usuario y ordenador */
+.resultado p[id="usuario-elegir"],
+.resultado p[id="ordenador-elige"] {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px;
+    background-color: #3a3a31;
     border-radius: 8px;
-    text-align: left;
+    margin-bottom: 12px;
+    border-left: 4px solid #3b82f6; /* Detalle azul UI */
 }
 
-.resultado p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color:#ffffff ;
+/* Línea de ordenador cambia dinámicamente si tiene estilos inline de JS */
+.resultado p[id="ordenador-elige"] {
+    border-left-color: #677d9c;
+    transition: color 0.3s ease;
 }
 
-.resultado p:last-child {
-    margin-bottom: 0;
+/* ==========================================
+   SECCIÓN DE TARJETAS (ELEGIR)
+   ========================================== */
+.elegir {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 460px;
 }
 
-
-.box-outcome {
-    background: rgba(0, 243, 255, 0.03); /* Fondo oscuro semi-transparente */
-    border-radius: 6px; /* Esquinas ligeramente suavizadas */
-    padding: 15px 25px; /* Espaciado interno para que el texto respire */
-    margin: 15px auto; /* Margen para separarlo de otros elementos */
-    max-width: 450px; /* Ancho máximo para que no se deforme en PC */
-    width: 90%; /* Adaptable a pantallas de móviles */
-    box-shadow: 0 0 15px rgba(0, 243, 255, 0.1), inset 0 0 15px rgba(0, 243, 255, 0.05); /* Brillo holográfico exterior e interior */
-    backdrop-filter: blur(5px); /* Efecto de cristal esmerilado de fondo */
-    transition: all 0.3s ease;
+/* Tarjeta Base */
+.card {
+    background-color: #4671b6;
+    border: 1px solid #ffffff;
+    border-radius: 16px;
+    flex: 1; /* Hace que las 3 tarjetas midan exactamente lo mismo equitativamente */
+    min-width: 100px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para el texto que va dentro */
-#outcome {
-    font-size: 1rem;
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    transition: transform 0.25s ease;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #f2f4f7;
+    transition: color 0.25s ease;
+}
+
+/* ==========================================
+   ESTADOS DE LAS TARJETAS (HOVER & ACTIVE)
+   ========================================== */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover .card-icon {
+    transform: scale(1.15); /* Efecto pop-up al emoji */
+}
+
+.card:hover .card-text {
     color: #ffffff;
-    background-color:rgba(246, 182, 20, 0.734);
-    padding: 20px 20px;
-    letter-spacing: 1px;
-    line-height: 1.4;
+}
+
+/* Colores de enfoque específicos por tarjeta al hacer Hover */
+.choice1:hover { border-color: #47d72b; background-color: #31e121ad; } /* Piedra (Gris) */
+.choice2:hover { border-color: #e0e315; background-color: #f1f50bbb; } /* Papel (Azul) */
+.choice3:hover { border-color: #ef4444; background-color: #f76767c2; } /* Tijera (Rojo) */
+
+.card:active {
+    transform: translateY(-1px);
+}
+
+/* Estado Deshabilitado (Cuando la máquina está pensando) */
+.card:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: #334155 !important;
+    background-color: #1e293b !important;
+}
+
+/* ==========================================
+   ZONA DE TIEMPOS Y RESULTADO FINAL
+   ========================================== */
+.box-outcome {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tiempos {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.tiempos p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    background-color: #0f172a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    flex: 1;
     text-align: center;
+    border: 1px solid #334155;
+}
+
+/* Bloque destacado del veredicto final */
+#outcome {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 14px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    letter-spacing: 0.5px;
 }
