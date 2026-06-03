@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +7,43 @@
     <title>Piedra, Papel o Tijera</title>
 </head>
 <body>
-    <h1> <img src="./img/logo.png" alt="logo"> Piedra, Papel o Tijera</h1>
-    <div class="game">
-        <div class="elegir">
-            <button id="piedra" class="choice">🪨Piedra</button>
-            <button id="papel" class="choice">🫲Papel</button>
-            <button id="tijera" class="choice">✂️Tijera</button>
-        </div>
-        <div class="resultado">
-            <p id="usuario-elegir">Tu elección: </p>
-            <p id="ordenador-elige">Elección de la computadora: </p>
-            <div class="box-outcome">
-            <p id="outcome">Resultado: </p>
+    <h1><img src="./img/logo.png" alt="logo"> Piedra, Papel o Tijera</h1>
+    
+    <div class="marcador" style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
+        <span id="puntos-usuario">👨🏻 Marcador: 0</span> - <span id="puntos-ordenador">0 🤖</span>
+    </div>
+
+    <div class="elegir">
+        <button id="piedra" class="card choice1">
+            <span class="card-icon">🪨</span>
+            <span class="card-text">Piedra</span>
+        </button>
+
+        <button id="papel" class="card choice2">
+            <span class="card-icon">🫲</span>
+            <span class="card-text">Papel</span>
+        </button>
+
+        <button id="tijera" class="card choice3">
+            <span class="card-icon">✂️</span>
+            <span class="card-text">Tijera</span>
+        </button>
+    </div>
+
+    <div class="resultado">
+        <p id="usuario-elegir">👨🏻Usuario: </p>
+        <p id="ordenador-elige">🤖Ordenador: </p>
+        <div class="box-outcome">
+            <div class="tiempos" style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px;">
+                <p id="tiempo-usuario">Tiempo del jugador: 0.00s</p>
+                <p id="tiempo-ordenador">Tiempo de la máquina: 0.00s</p>
             </div>
+            <p id="outcome">Resultado: </p>
+            
+            <button id="btn-reiniciar" style="display: none; margin: 15px auto; padding: 10px 20px; font-size: 1rem; cursor: pointer;">Jugar de nuevo 🔄</button>
         </div>
     </div>
+
+    <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
 </html>
